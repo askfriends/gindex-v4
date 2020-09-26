@@ -1,10 +1,13 @@
 {
   "name": "gindex-v4",
-  "version": "8.1.7",
-  "g2index": "8.1.7",
+  "version": "8.2.4",
+  "g2index": "8.2.4",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-theme": "cmd /c build-theme.bat",
+    "build-all": "cmd /c buildAll.bat",
+    "serve-theme": "cmd /c serve-theme.bat",
     "lint": "vue-cli-service lint",
     "analyz": "npm_config_report=true npm run build",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
@@ -40,6 +43,7 @@
     "vue": "^2.6.11",
     "vue-avatar": "^2.3.0",
     "vue-axios": "^2.1.5",
+    "vue-clipboard2": "^0.3.1",
     "vue-codemirror": "^4.0.6",
     "vue-head": "^2.2.0",
     "vue-i18n": "^8.18.2",

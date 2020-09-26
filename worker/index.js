@@ -3,6 +3,10 @@ var authConfig = {
   siteName: "Glory to Heaven",
   hybridpass: "Copy Hybrid Password Generated from Backend",
   version: "v8.1.3",
+  theme: "green",
+  //Following Themes are Available for Selection.
+  //carnation, curious-blue, emerald, ice-cold, konifer, netflix-red, kournikova, mona-lisa, persian-rose, purple-heart, purple-mountains-majesty, salmon, selective-yellow, shamrock, witch-haze
+  //All are Case Sensitive.
   frontendUrl: "https://glorytoheaven.tk",
   github_name: "tks18",
   github_repo: "gindex-v4",
@@ -34,10 +38,6 @@ var themeOptions = {
     default_poster: "https://i.ibb.co/Hx3ZqLm/giphy.gif",
   },
   footer_data: {
-    copyright: true,
-    disclaimer: true,
-    license: true,
-    codeofconduct: true,
     footer_logo: true,
     footer_logo_link: "https://i.ibb.co/Hx3ZqLm/giphy.gif",
   },
@@ -49,13 +49,13 @@ var themeOptions = {
     desc: true,
   }
 }
+// =======Options END=======
+
 
 var routes = {
   loginRoute: authConfig.backendSite + '/login',
   mediaTokenVerify: authConfig.backendSite + '/media/verify',
 };
-// =======Options END=======
-
 
 /**
  * global functions
@@ -99,7 +99,7 @@ function html(current_drive_order = 0, model = {}) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
   <title>${authConfig.siteName}</title>
   <style>
-    @import url(https://cdn.jsdelivr.net/gh/${authConfig.github_name}/${authConfig.github_repo}@${authConfig.version}/vuejs/dist/style.css);
+    @import url(https://cdn.jsdelivr.net/gh/${authConfig.github_name}/${authConfig.github_repo}@${authConfig.version}/vuejs/outputs/${authConfig.theme}/style.css);
   </style>
   <link rel="icon" sizes="57x57" href="${authConfig.favicon}" />
   <script>
@@ -120,7 +120,7 @@ function html(current_drive_order = 0, model = {}) {
 </head>
 <body>
     <div id="app"></div>
-    <script src="https://cdn.jsdelivr.net/gh/${authConfig.github_name}/${authConfig.github_repo}@${authConfig.version}/vuejs/dist/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/${authConfig.github_name}/${authConfig.github_repo}@${authConfig.version}/vuejs/outputs/${authConfig.theme}/app.js"></script>
 </body>
 </html>
 `;

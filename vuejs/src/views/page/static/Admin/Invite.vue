@@ -6,7 +6,6 @@
       <div class="columns is-multiline is-centered is-vcentered">
         <div class="column has-text-centered is-half">
           <h2 class="title has-text-weight-bold has-text-white">Invite Users</h2>
-          <p class="subtitle is-small has-text-white">(Please Use Considerably As We Have to Incur Mail Costs.)</p>
           <article :class=" errorMessage ? 'message is-danger' : 'message is-hidden is-danger'">
             <div class="message-header">
               <p>Error Proccessing</p>
@@ -82,7 +81,7 @@
                 </div>
               </div>
             </div>
-            <button :class=" loading ? 'button is-loading is-rounded is-success is-medium' : 'button is-success is-rounded is-medium' " type="submit" :disabled="buttondisabled" >
+            <button :class=" loading ? 'button is-loading is-rounded is-netflix-red is-medium' : 'button is-netflix-red is-rounded is-medium' " type="submit" :disabled="buttondisabled" >
               <span class="icon">
                 <i class="fas fa-user-plus"></i>
               </span>

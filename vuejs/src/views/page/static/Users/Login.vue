@@ -5,57 +5,38 @@
       </div>
         <div class="columns is-vcentered is-centered is-multiline">
           <div class="column is-half">
-            <section class="hero is-black is-medium">
-              <div class="hero-body">
-                <div class="container">
-                  <div class="tile is-ancestor">
-                    <div class="tile is-parent">
-                      <article class="tile has-text-centered is-child notification is-primary">
-                        <p class="title has-text-dark">
-                          <span class="icon">
-                            <i class="fab fa-superpowers"></i>
-                          </span>
-                          <span> Ahh!! Perfect !</span>
-                        </p>
-                        <p class="subtitle">Login</p>
-                        <div class="content">
-                            <p class="has-text-dark has-text-weight-semibold">Login to this Website to Continue.</p>
-                            <p class="has-text-dark">You are Just a Page from Experiencing the Glory.</p>
-                            <button class="button mb-3" @click="hyInput = !hyInput">
-                              <span class="icon">
-                                <i class="fas fa-dolly"></i>
-                              </span>
-                              <span>Hybrid Login</span>
-                            </button>
-                            <form @submit.prevent="handleHybrid" v-show="hyInput">
-                              <div class="columns is-mobile is-centered is-multiline is-vcentered">
-                                <div class="column is-four-fifths">
-                                  <div class="field">
-                                    <p class="control has-icons-left">
-                                      <input class="input is-rounded" id="hypassword" autocomplete="hy-password" type="password" placeholder="Enter Your Hybrid Password" v-model="hypassword" required>
-                                      <span class="icon is-small is-left">
-                                        <i class="fas fa-lock"></i>
-                                      </span>
-                                    </p>
-                                  </div>
-                                </div>
-                                <div class="column is-one-fifth">
-                                  <button class="button is-danger">
-                                    <span class="icon">
-                                      <i class="fas fa-sign-in-alt"></i>
-                                    </span>
-                                    <span class="is-hidden-mobile">Login</span>
-                                  </button>
-                                </div>
-                              </div>
-                            </form>
-                        </div>
-                      </article>
+            <div class="content has-text-white has-text-centered">
+              <p class="has-text-weight-semibold">Login to this Website to Continue.</p>
+              <p>You are Just a Page from Experiencing the Glory.</p>
+              <button class="button mb-3" @click="hyInput = !hyInput">
+                <span class="icon">
+                  <i class="fas fa-dolly"></i>
+                </span>
+                <span>Hybrid Login</span>
+              </button>
+              <form @submit.prevent="handleHybrid" v-show="hyInput">
+                <div class="columns is-mobile is-centered is-multiline is-vcentered">
+                  <div class="column is-four-fifths">
+                    <div class="field">
+                      <p class="control has-icons-left">
+                        <input class="input is-rounded" id="hypassword" autocomplete="hy-password" type="password" placeholder="Enter Your Hybrid Password" v-model="hypassword" required>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-lock"></i>
+                        </span>
+                      </p>
                     </div>
                   </div>
+                  <div class="column is-one-fifth">
+                    <button class="button is-netflix-red">
+                      <span class="icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                      </span>
+                      <span class="is-hidden-mobile">Login</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </section>
+              </form>
+            </div>
           </div>
           <div :class=" modal ? 'modal is-active' : 'modal' ">
             <div class="modal-background"></div>
@@ -100,7 +81,7 @@
                       </div>
                     </div>
                     <div class="column has-text-centered is-two-thirds">
-                      <button :class=" loading ? 'button is-rounded is-loading is-danger' : 'button is-rounded is-danger'">
+                      <button :class=" loading ? 'button is-rounded is-loading is-netflix-red' : 'button is-rounded is-netflix-red'">
                         <span class="icon">
                           <i class="fas fa-user-plus"></i>
                         </span>
@@ -153,7 +134,7 @@
                 </p>
               </div>
               <p class="help subtitle has-text-weight-bold forgot-pass has-text-right is-success" style="cursor: pointer;" @click="modal = true;">Forgot Password ?</p>
-              <button :class=" loading ? 'button is-rounded is-loading is-danger is-medium' : 'button is-rounded is-medium is-danger'" :disabled="disabled">
+              <button :class=" loading ? 'button is-rounded is-loading is-netflix-red is-medium' : 'button is-rounded is-medium is-netflix-red'" :disabled="disabled">
                 <span class="icon is-medium">
                   <i class="fas fa-shipping-fast"></i>
                 </span>
@@ -232,9 +213,11 @@ import 'vue-loading-overlay/dist/vue-loading.css';
                           this.metatitle = "Success...";
                           setItem("tokendata", encodeSecret(JSON.stringify({ token: response.data.token ,issuedate: response.data.issuedat, expirydate: response.data.expiryat })));
                           setItem("userdata", encodeSecret(JSON.stringify( response.data.tokenuser )));
+                          setItem("sessiondata", encodeSecret(JSON.stringify( response.data.sessiondata )))
                           var token = getItem("tokendata");
                           var user = getItem("userdata");
-                          if(token != null && user != null){
+                          var session = getItem("sessiondata");
+                          if(token != null && user != null && session != null){
                             var tokenData = JSON.parse(decodeSecret(token));
                             var userData = JSON.parse(decodeSecret(user));
                             this.loading = false;
